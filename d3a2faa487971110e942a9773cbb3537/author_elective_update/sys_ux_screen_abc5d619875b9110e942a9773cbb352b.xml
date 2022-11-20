@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_screen">
+    <sys_ux_screen action="DELETE">
+        <active>true</active>
+        <app_config display_value="NextForm">e1b51619875b9110e942a9773cbb35f0</app_config>
+        <description/>
+        <event_mappings/>
+        <macroponent display_value="Sample">6fc5d619875b9110e942a9773cbb3528</macroponent>
+        <macroponent_config>{ }</macroponent_config>
+        <name>Sample default</name>
+        <order>0</order>
+        <parent_macroponent display_value="UXR Base Experience Shell">76a83a645b122010b913030a1d81c780</parent_macroponent>
+        <required_translations>[ ]</required_translations>
+        <rollback_screen/>
+        <screen_condition/>
+        <screen_type display_value="Sample">2bc5d619875b9110e942a9773cbb3526</screen_type>
+        <sys_class_name>sys_ux_screen</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-20 13:25:12</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>abc5d619875b9110e942a9773cbb352b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Sample default</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_update_name>sys_ux_screen_abc5d619875b9110e942a9773cbb352b</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-20 13:25:12</sys_updated_on>
+    </sys_ux_screen>
+    <sys_translated_text action="DELETE" query="documentkey=abc5d619875b9110e942a9773cbb352b"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NextForm">d3a2faa487971110e942a9773cbb3537</application>
+        <file_path/>
+        <instance_id>f60598d9db7e1d5c07072f17d49619fb</instance_id>
+        <instance_name>dldev2</instance_name>
+        <name>sys_ux_screen_abc5d619875b9110e942a9773cbb352b</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_screen"><sys_ux_screen action="INSERT_OR_UPDATE"><active>true</active><app_config display_value="NextForm">e1b51619875b9110e942a9773cbb35f0</app_config><description/><event_mappings/><macroponent display_value="Sample">6fc5d619875b9110e942a9773cbb3528</macroponent><macroponent_config>{ }</macroponent_config><name>Sample default</name><order>0</order><parent_macroponent display_value="UXR Base Experience Shell">76a83a645b122010b913030a1d81c780</parent_macroponent><required_translations>[ ]</required_translations><rollback_screen/><screen_condition/><screen_type display_value="Sample">2bc5d619875b9110e942a9773cbb3526</screen_type><sys_class_name>sys_ux_screen</sys_class_name><sys_created_by>dylan.lindgren</sys_created_by><sys_created_on>2022-11-20 13:25:12</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>abc5d619875b9110e942a9773cbb352b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Sample default</sys_name><sys_overrides/><sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package><sys_policy/><sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope><sys_update_name>sys_ux_screen_abc5d619875b9110e942a9773cbb352b</sys_update_name><sys_updated_by>dylan.lindgren</sys_updated_by><sys_updated_on>2022-11-20 13:25:12</sys_updated_on></sys_ux_screen><sys_translated_text action="delete_multiple" query="documentkey=abc5d619875b9110e942a9773cbb352b"/></record_update>]]></payload>
+        <payload_hash>1374101014</payload_hash>
+        <record_name>Sample default</record_name>
+        <reverted_from/>
+        <source>9ba2faa487971110e942a9773cbb3539</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-20 13:25:12</sys_created_on>
+        <sys_id>6bc5d619875b9110e942a9773cbb352e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1849536e2150000001</sys_recorded_at>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-20 13:25:12</sys_updated_on>
+        <type>UX Screen</type>
+        <update_guid>a3c5d619a35b911033d180bbf6c3242e</update_guid>
+        <update_guid_history>a3c5d619a35b911033d180bbf6c3242e:1374101014</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-20 13:34:34</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_screen">sys_ux_screen</sys_db_object>
+        <sys_id>9f73100254ed457396174483ce3e8e31</sys_id>
+        <sys_metadata>abc5d619875b9110e942a9773cbb352b</sys_metadata>
+        <sys_name>Sample default</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_scope_delete display_value="">094c407e42e8496083c63ff1d3be3a84</sys_scope_delete>
+        <sys_update_name>sys_ux_screen_abc5d619875b9110e942a9773cbb352b</sys_update_name>
+        <sys_update_version display_value="sys_ux_screen_abc5d619875b9110e942a9773cbb352b">6bc5d619875b9110e942a9773cbb352e</sys_update_version>
+    </sys_metadata_delete>
+</record_update>

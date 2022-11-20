@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-20 13:24:48</sys_created_on>
+        <sys_id>39b59619875b9110e942a9773cbb3518</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x.snc.nextform.*.canvas_user</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_security_acl display_value="x.snc.nextform.*">e5b59619875b9110e942a9773cbb3515</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_39b59619875b9110e942a9773cbb3518</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-20 13:24:48</sys_updated_on>
+        <sys_user_role display_value="canvas_user" name="canvas_user">8536f54bc713330072b211d4d8c26080</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NextForm">d3a2faa487971110e942a9773cbb3537</application>
+        <file_path/>
+        <instance_id>f60598d9db7e1d5c07072f17d49619fb</instance_id>
+        <instance_name>dldev2</instance_name>
+        <name>sys_security_acl_role_39b59619875b9110e942a9773cbb3518</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>dylan.lindgren</sys_created_by><sys_created_on>2022-11-20 13:24:48</sys_created_on><sys_id>39b59619875b9110e942a9773cbb3518</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x.snc.nextform.*.canvas_user</sys_name><sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package><sys_policy/><sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope><sys_security_acl display_value="x.snc.nextform.*">e5b59619875b9110e942a9773cbb3515</sys_security_acl><sys_update_name>sys_security_acl_role_39b59619875b9110e942a9773cbb3518</sys_update_name><sys_updated_by>dylan.lindgren</sys_updated_by><sys_updated_on>2022-11-20 13:24:48</sys_updated_on><sys_user_role display_value="canvas_user" name="canvas_user">8536f54bc713330072b211d4d8c26080</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>1334147977</payload_hash>
+        <record_name>x.snc.nextform.*.canvas_user</record_name>
+        <reverted_from/>
+        <source>9ba2faa487971110e942a9773cbb3539</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-20 13:24:48</sys_created_on>
+        <sys_id>fdb59619875b9110e942a9773cbb351a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>184953683480000001</sys_recorded_at>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-20 13:24:48</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>39b59619fd5b9110709af47afa73371a</update_guid>
+        <update_guid_history>39b59619fd5b9110709af47afa73371a:1334147977</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x.snc.nextform.*.canvas_user">f9185699875b9110e942a9773cbb3581</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-20 13:35:12</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>94f18637e7d44c34aba9f6eb7e631e44</sys_id>
+        <sys_metadata>39b59619875b9110e942a9773cbb3518</sys_metadata>
+        <sys_name>x.snc.nextform.*.canvas_user</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_scope_delete display_value="">094c407e42e8496083c63ff1d3be3a84</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_39b59619875b9110e942a9773cbb3518</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_39b59619875b9110e942a9773cbb3518">fdb59619875b9110e942a9773cbb351a</sys_update_version>
+    </sys_metadata_delete>
+</record_update>

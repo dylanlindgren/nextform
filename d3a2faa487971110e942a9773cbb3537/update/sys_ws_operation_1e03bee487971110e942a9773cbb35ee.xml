@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>GET</http_method>
+        <name>Get Form Object</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+	
+	var form = new Form();
+    response.setBody(form.toJSON());
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_snc_nf/nextform/form</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/form</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-18 07:38:28</sys_created_on>
+        <sys_id>1e03bee487971110e942a9773cbb35ee</sys_id>
+        <sys_name>Get Form Object</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_update_name>sys_ws_operation_1e03bee487971110e942a9773cbb35ee</sys_update_name>
+        <web_service_definition display_value="NextForm">d6f27ee487971110e942a9773cbb355d</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

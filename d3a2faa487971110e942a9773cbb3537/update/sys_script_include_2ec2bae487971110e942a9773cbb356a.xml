@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_nf.Field</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Field</name>
+        <script><![CDATA[var Field = Class.create();
+Field.prototype = {
+
+    initialize: function(type, label, name) {
+        this.fieldType = type;
+        this.label = label;
+        this.name = name;
+
+        switch(this.fieldType) {
+            case "string":
+                this.fieldData = this._buildString();
+                break;
+            case "dateTime":
+                this.fieldData = this._buildDateTime();
+                break;
+            case "integer":
+                this.fieldData = this._buildInteger();
+                break;
+            case "choice":
+                this.fieldData = this._buildChoice();
+                break;
+            default:
+                this.fieldData = this._buildString();
+                break;
+        }
+    },
+
+    fieldType: null,
+    label: null,
+    name: null,
+
+    fieldData: {},
+
+    _buildDateTime: function () {
+        return this._buildFieldWithCommon({
+            "type": "glide_date_time",
+            "dependentField": null,
+            "dependentTable": null,
+            "internalType": "glide_date_time",
+            "referenceSysId": "",
+            "highlightedValue": {},
+            "value": null,
+            "displayValue": null,
+            "valuesList": [],
+            "display_value_list": [],
+            "isEncrypted": false,
+        });
+    },
+
+    _buildString: function () {
+        return this._buildFieldWithCommon({
+            "maxLength": 160,
+            "defaultRows": null,
+            "type": "string",
+            "dependentField": null,
+            "dependentTable": null,
+            "internalType": "string",
+            "value": "",
+            "displayValue": null,
+            "valuesList": [],
+            "display_value_list": [],
+        });
+    },
+
+    _buildFieldWithCommon: function (obj) {
+        return Object.assign({
+            "name": this.name,
+            "label": this.label,
+            "defer": true,
+            "visible": true,
+            "readonly": false,
+            "mandatory": false,
+            "isEncrypted": false,
+            "encryptionContext": "",
+            "sys_readonly": false,
+            "canWrite": true,
+            "canRead": true,
+            "canCreate": true,
+            "fieldHint": null,
+            "isGlideVar": false,
+            "originalValue": ""
+        }, obj);
+    },
+
+    _buildChoice: function () {
+        return this._buildFieldWithCommon({
+            "internalType": "integer",
+            "type": "choice",
+            "choices": [
+                {
+                    "displayValue": "3 Months",
+                    "value": "3"
+                },
+                {
+                    "displayValue": "6 Months",
+                    "value": "6"
+                }
+            ],
+            "valuesList": [],
+            "display_value_list": [],
+            "value": "",
+            "displayValue": ""
+        });
+    },
+
+    _buildInteger: function () {
+
+        return {
+            "name": this.name,
+            "dictionary": {
+              "type": "integer",
+              "dependentFieldLabel": null,
+              "dependentField": null,
+              "dependentTable": null,
+              "name": this.name,
+              "label": this.label,
+              "fieldHint": "",
+              "canWrite": true,
+              "canRead": true,
+              "canCreate": true,
+              "internalType": "integer",
+              "isMandatory": false,
+              "isEncrypted": false,
+              "encryptionContext": "",
+              "sys_readonly": false,
+              "attributes": []
+            },
+            "maxLength": 40,
+            "defaultRows": null,
+            "type": "integer",
+            "label": this.label,
+            "visible": true,
+            "readonly": false,
+            "mandatory": false,
+            "dependentField": null,
+            "dependentTable": null,
+            "referringTable": null,
+            "referringRecordId": null,
+            "internalType": "integer",
+            "referenceSysId": "",
+            "highlightedValue": {},
+            "isGlideVar": false,
+            "value": "",
+            "displayValue": null,
+            "valuesList": [],
+            "display_value_list": [],
+            "sys_readonly": false,
+            "originalValue": "",
+            "autofocus": true
+          }
+
+
+        return this._buildFieldWithCommon({
+            "internalType": "integer",
+            "type": "integer",
+            "value": "",
+            "displayValue": null
+        });
+    },
+
+    toJSON: function () {
+        return this.fieldData;
+    },
+
+    toString: function () {
+        return JSON.stringify(this.fieldData);
+    },
+
+    type: 'Field'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-18 07:36:32</sys_created_on>
+        <sys_id>2ec2bae487971110e942a9773cbb356a</sys_id>
+        <sys_name>Field</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_update_name>sys_script_include_2ec2bae487971110e942a9773cbb356a</sys_update_name>
+    </sys_script_include>
+</record_update>
