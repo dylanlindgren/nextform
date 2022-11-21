@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="DELETE">
+        <active>true</active>
+        <application/>
+        <filter/>
+        <name>Processors</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>admin</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-21 02:21:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>41674dad8753d110e942a9773cbb3521</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Processors</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_update_name>sys_ui_module_41674dad8753d110e942a9773cbb3521</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-21 02:25:38</sys_updated_on>
+        <table>x_snc_nf_processor</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NextForm">d3a2faa487971110e942a9773cbb3537</application>
+        <file_path/>
+        <instance_id>f60598d9db7e1d5c07072f17d49619fb</instance_id>
+        <instance_name>dldev2</instance_name>
+        <name>sys_ui_module_41674dad8753d110e942a9773cbb3521</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module"><sys_ui_module action="INSERT_OR_UPDATE"><active>true</active><application/><filter/><name>Processors</name><order/><path/><path_relative_to_root>false</path_relative_to_root><roles>admin</roles><sys_class_name>sys_ui_module</sys_class_name><sys_created_by>dylan.lindgren</sys_created_by><sys_created_on>2022-11-21 02:21:05</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>41674dad8753d110e942a9773cbb3521</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Processors</sys_name><sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package><sys_policy/><sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope><sys_update_name>sys_ui_module_41674dad8753d110e942a9773cbb3521</sys_update_name><sys_updated_by>dylan.lindgren</sys_updated_by><sys_updated_on>2022-11-21 02:25:38</sys_updated_on><table>x_snc_nf_processor</table><uncancelable>false</uncancelable><view_name/></sys_ui_module></record_update>]]></payload>
+        <payload_hash>-810597191</payload_hash>
+        <record_name>Processors</record_name>
+        <reverted_from/>
+        <source>c1199e99875b9110e942a9773cbb359c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-21 02:30:47</sys_created_on>
+        <sys_id>4799cd618793d110e942a9773cbb35a3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1849806182b0000001</sys_recorded_at>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-21 02:30:47</sys_updated_on>
+        <type>Module</type>
+        <update_guid>c399cd61bb93d1104ed148b60cad17a3</update_guid>
+        <update_guid_history>c399cd61bb93d1104ed148b60cad17a3:0,338845211b93d110d0124949ee754ee7:0,45674dadeb53d1101f2037d10d9ffc22:-1302128914</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-21 02:31:28</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_module">sys_ui_module</sys_db_object>
+        <sys_id>18b84ac14c8b44a08506a7c2ef234400</sys_id>
+        <sys_metadata>41674dad8753d110e942a9773cbb3521</sys_metadata>
+        <sys_name>Processors</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_scope_delete display_value="">094c407e42e8496083c63ff1d3be3a84</sys_scope_delete>
+        <sys_update_name>sys_ui_module_41674dad8753d110e942a9773cbb3521</sys_update_name>
+        <sys_update_version display_value="sys_ui_module_41674dad8753d110e942a9773cbb3521">4799cd618793d110e942a9773cbb35a3</sys_update_version>
+    </sys_metadata_delete>
+</record_update>

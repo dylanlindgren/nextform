@@ -13,7 +13,7 @@
         <mobile_title>Processors</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name>x_snc_nf_processor</name>
-        <order/>
+        <order>300</order>
         <override_menu_roles>false</override_menu_roles>
         <query/>
         <report/>

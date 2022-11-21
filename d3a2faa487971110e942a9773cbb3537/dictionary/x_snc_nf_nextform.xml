@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="0c08c9ed8753d110e942a9773cbb355f" max_length="40" name="x_snc_nf_nextform" type="collection">
+    <element attributes="update_synch=true" db_object_id="9e09cd218793d110e942a9773cbb35da" extends="sys_metadata" label="NextForm" max_length="40" name="x_snc_nf_nextform" type="collection">
         <element label="Generator" max_length="32" name="generator" reference="x_snc_nf_generator" type="reference"/>
         <element label="Processor" max_length="32" name="processor" reference="x_snc_nf_processor" type="reference"/>
         <index name="index">
