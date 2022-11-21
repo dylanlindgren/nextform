@@ -13,7 +13,7 @@
         <license_definition/>
         <license_model>none</license_model>
         <logo/>
-        <menu/>
+        <menu display_value="NextForm">6df685ad8753d110e942a9773cbb3576</menu>
         <name>NextForm</name>
         <private>false</private>
         <restrict_table_access>false</restrict_table_access>
@@ -32,7 +32,7 @@
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
-        <user_role/>
+        <user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</user_role>
         <vendor/>
         <vendor_prefix/>
         <version>1.0.0</version>

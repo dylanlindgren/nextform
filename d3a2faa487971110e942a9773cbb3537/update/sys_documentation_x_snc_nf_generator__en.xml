@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="" label="Generator" language="en" table="x_snc_nf_generator">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element/>
+            <help/>
+            <hint/>
+            <label>Generator</label>
+            <language>en</language>
+            <name>x_snc_nf_generator</name>
+            <plural>Generators</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>dylan.lindgren</sys_created_by>
+            <sys_created_on>2022-11-21 02:20:31</sys_created_on>
+            <sys_name>Generator</sys_name>
+            <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_nf_generator__en</sys_update_name>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
