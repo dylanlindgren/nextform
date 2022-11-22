@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="INSERT_OR_UPDATE">
+        <includes/>
+        <macroponent display_value="NextForm">2fd4b4218753d110e942a9773cbb35a5</macroponent>
+        <name>Handle NextForm Object Load</name>
+        <preset/>
+        <required_translations/>
+        <script><![CDATA[/**
+ * @param {params} params
+ * @param {api} params.api
+ * @param {any} params.event
+ * @param {any} params.imports
+ * @param {ApiHelpers} params.helpers
+ */
+function handler({ api, event, helpers, imports }) {
+    var screens = api.data.get_nextform_object.output.result.screens;
+    api.setState('data', );
+    api.setState('screenPointer', 0);
+    api.setState('sections', screens[0].sections);
+    api.setState('fields', screens[0].fields);
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-21 07:48:35</sys_created_on>
+        <sys_id>ae52562d8757d110e942a9773cbb355a</sys_id>
+        <sys_name>Handle NextForm Object Load</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_update_name>sys_ux_client_script_ae52562d8757d110e942a9773cbb355a</sys_update_name>
+        <target>macroponent</target>
+        <type>default</type>
+    </sys_ux_client_script>
+</record_update>

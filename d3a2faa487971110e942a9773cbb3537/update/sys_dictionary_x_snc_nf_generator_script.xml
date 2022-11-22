@@ -16,9 +16,9 @@
         <column_label>Script</column_label>
         <comments/>
         <create_roles/>
-        <default_value>(function generateNextFormObject (nfData) {&#13;
+        <default_value>(function generateNextFormObject () {&#13;
 &#13;
-})(nfData)</default_value>
+})();</default_value>
         <defaultsort/>
         <delete_roles/>
         <dependent/>

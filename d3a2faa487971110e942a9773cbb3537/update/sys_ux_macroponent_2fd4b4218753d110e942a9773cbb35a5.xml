@@ -5,73 +5,207 @@
         <component_dependencies/>
         <composition/>
         <da_relay_models/>
-        <data>[{&#13;
-  "definition" : {&#13;
-    "id" : "f953f22887971110e942a9773cbb3528",&#13;
-    "type" : "REST"&#13;
-  },&#13;
-  "dependencies" : { },&#13;
-  "elementId" : "get_nextform_object",&#13;
-  "elementLabel" : "Get NextForm Object",&#13;
-  "eventMappings" : [ ],&#13;
-  "inputValues" : { },&#13;
-  "readEvaluationMode" : "EAGER"&#13;
-}]</data>
+        <data>[{
+    "definition": {
+      "id": "f953f22887971110e942a9773cbb3528",
+      "type": "REST"
+    },
+    "dependencies": {},
+    "elementId": "get_nextform_object",
+    "elementLabel": "Get NextForm Object",
+    "eventMappings": [{
+      "eventMappingId" : "claqfhhyzjjaabbhhcddbhhsddcqwkanv",
+      "isConfiguration" : false,
+      "offRowStorageId" : null,
+      "sourceEventApiName" : "sn_uxf.DATA_FETCH_SUCCEEDED",
+      "sourceEventCorrelationId" : null,
+      "sourceEventDefinition" : {
+        "apiName" : "sn_uxf.DATA_FETCH_SUCCEEDED",
+        "id" : null,
+        "type" : "UXEVENT"
+      },
+      "sourceEventSysId" : null,
+      "targets" : [ {
+        "broker" : null,
+        "clientScript" : {
+          "sysId" : "ae52562d8757d110e942a9773cbb355a"
+        },
+        "conditional" : null,
+        "declarativeAction" : null,
+        "event" : null,
+        "operation" : null,
+        "targetId" : "claqfhhyzjjaabbhhdddbhhsduggherccjj",
+        "type" : "CLIENT_SCRIPT"
+      } ]
+    }],
+    "inputValues": {
+      "nextform_id": {
+        "type": "CONTEXT_BINDING",
+        "binding": {
+          "address": [
+            "nextFormSysId"
+          ],
+          "category": "props"
+        }
+      }
+    },
+    "readEvaluationMode": "EAGER"
+  },
+  {
+    "definition": {
+      "id": "d0d002ad8717d110e942a9773cbb35af",
+      "type": "REST"
+    },
+    "dependencies": {},
+    "elementId": "process_nextform_data",
+    "elementLabel": "Process NextForm Data",
+    "eventMappings": [],
+    "inputValues": {},
+    "readEvaluationMode": "EXPLICIT"
+  }
+]</data>
         <description/>
         <dispatched_events/>
         <ext_controller_dep/>
         <extends/>
-        <handled_events/>
+        <handled_events>936839e58717d110e942a9773cbb35fe,f01f8a698757d110e942a9773cbb35fa</handled_events>
         <interactions/>
         <interfaces/>
-        <internal_event_mappings>{}</internal_event_mappings>
+        <internal_event_mappings>{
+  "x_snc_nf.CTRL_NEXTFORM#CHANGE_SCREEN": [{
+    "broker": null,
+    "clientScript": {
+      "sysId": "33a635a58717d110e942a9773cbb35a2"
+    },
+    "conditional": null,
+    "declarativeAction": null,
+    "event": null,
+    "operation": null,
+    "targetId": "claqdggaaaeeaaccjpddbhhsddakmddkhw",
+    "type": "CLIENT_SCRIPT"
+  }],
+  "x_snc_nf.CTRL_NEXTFORM#PROCESS_NEXTFORM": [{
+    "broker": null,
+    "clientScript": {
+      "sysId": "dc4f4e698757d110e942a9773cbb351d"
+    },
+    "conditional": null,
+    "declarativeAction": null,
+    "event": null,
+    "operation": null,
+    "targetId": "claqfhdbaaaabbiieddbhhsbbzeeylbaa",
+    "type": "CLIENT_SCRIPT"
+  }]
+}</internal_event_mappings>
         <layout/>
         <macroponent_dependencies/>
         <name>NextForm</name>
-        <output_prop_mapping>{
-    "fields": {
-        "type": "DATA_OUTPUT_BINDING",
-        "binding": {
-            "address": [
-                "get_nextform_object",
-                "output",
-                "result",
-                "fields"
-            ]
-        }
-    },
-    "sections": {
-        "type": "DATA_OUTPUT_BINDING",
-        "binding": {
-            "address": [
-                "get_nextform_object",
-                "output",
-                "result",
-                "sections"
-            ]
-        }
-    }
+        <output_prop_mapping>{&#13;
+    "screens": {&#13;
+        "type": "DATA_OUTPUT_BINDING",&#13;
+        "binding": {&#13;
+            "address": [&#13;
+                "get_nextform_object",&#13;
+                "output",&#13;
+                "result",&#13;
+                "screens"&#13;
+            ]&#13;
+        }&#13;
+    },&#13;
+    "currentScreenIndex": {&#13;
+		"type": "STATE_BINDING",&#13;
+		"binding": {&#13;
+			"address": [&#13;
+				"screenPointer"&#13;
+			]&#13;
+		}&#13;
+	},&#13;
+    "fields": {&#13;
+		"type": "STATE_BINDING",&#13;
+		"binding": {&#13;
+			"address": [&#13;
+				"fields"&#13;
+			]&#13;
+		}&#13;
+	},&#13;
+    "sections": {&#13;
+		"type": "STATE_BINDING",&#13;
+		"binding": {&#13;
+			"address": [&#13;
+				"sections"&#13;
+			]&#13;
+		}&#13;
+	}&#13;
 }</output_prop_mapping>
-        <props>[
-  {
-    "name": "nextFormSysId",
-    "label": "NextForm SysID",
-    "fieldType": "string",
-    "typeMetadata": null,
-    "valueType": "string",
-    "mandatory": true,
-    "defaultValue": "",
-    "description": "The unique identifier of the NextForm",
-    "readOnly": false,
-    "selectable": false
-  }
+        <props>[&#13;
+    {&#13;
+        "name": "nextFormSysId",&#13;
+        "label": "NextForm SysID",&#13;
+        "fieldType": "string",&#13;
+        "typeMetadata": null,&#13;
+        "valueType": "string",&#13;
+        "mandatory": true,&#13;
+        "defaultValue": "",&#13;
+        "description": "The unique identifier of the NextForm",&#13;
+        "readOnly": false,&#13;
+        "selectable": false&#13;
+    }&#13;
 ]</props>
         <required_translations>[ ]</required_translations>
         <root_component/>
         <root_component_config/>
         <root_component_definition/>
         <schema_version>1.0.0</schema_version>
-        <state_properties/>
+        <state_properties>[{
+        "name": "screenPointer",
+        "label": "screenPointer",
+        "fieldType": "number",
+        "valueType": "number",
+        "shape": "",
+        "description": "",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": 0
+        }
+    },
+    {
+        "name": "sections",
+        "label": "sections",
+        "fieldType": "json",
+        "valueType": "json",
+        "shape": "",
+        "description": "",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": null
+        }
+    },
+    {
+        "name": "fields",
+        "label": "fields",
+        "fieldType": "json",
+        "valueType": "json",
+        "shape": "",
+        "description": "",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": null
+        }
+    }, {
+        "name": "data",
+        "label": "data",
+        "fieldType": "json",
+        "valueType": "json",
+        "shape": "",
+        "description": "",
+        "initialValue": {
+            "type": "JSON_LITERAL",
+            "value": {
+                "screens": []
+            }
+        }
+    }
+]</state_properties>
         <sys_class_name>sys_ux_macroponent</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-21 01:05:01</sys_created_on>
