@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_nf.Field</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Field</name>
+        <script><![CDATA[var Field = Class.create();
+Field.prototype = {
+
+    initialize: function (type, label, name) {
+        this.fieldType = type;
+        this.label = label;
+        this.name = name;
+
+        switch (this.fieldType) {
+            case "string":
+                this.fieldData = this._buildString();
+                break;
+            case "dateTime":
+                this.fieldData = this._buildDateTime();
+                break;
+            case "integer":
+                this.fieldData = this._buildInteger();
+                break;
+            case "choice":
+                this.fieldData = this._buildChoice();
+                break;
+            default:
+                this.fieldData = this._buildString();
+                break;
+        }
+
+        
+    },
+
+    fieldType: null,
+    label: null,
+    name: null,
+
+    fieldData: {},
+
+    _buildDateTime: function () {
+        return this._buildFieldWithCommon({
+            "type": "glide_date_time",
+            "dependentField": null,
+            "dependentTable": null,
+            "internalType": "glide_date_time",
+            "referenceSysId": "",
+            "highlightedValue": {},
+            "value": null,
+            "displayValue": null,
+            "valuesList": [],
+            "display_value_list": [],
+            "isEncrypted": false,
+        });
+    },
+
+    _buildString: function () {
+        return this._buildFieldWithCommon({
+            "maxLength": 160,
+            "defaultRows": null,
+            "type": "string",
+            "dependentField": null,
+            "dependentTable": null,
+            "internalType": "string",
+            "value": "",
+            "displayValue": null,
+            "valuesList": [],
+            "display_value_list": [],
+        });
+    },
+
+    _buildFieldWithCommon: function (obj) {
+        return Object.assign({
+            "name": this.name,
+            "label": this.label,
+            "defer": true,
+            "visible": true,
+            "readonly": false,
+            "mandatory": false,
+            "isEncrypted": false,
+            "encryptionContext": "",
+            "sys_readonly": false,
+            "canWrite": true,
+            "canRead": true,
+            "canCreate": true,
+            "fieldHint": null,
+            "isGlideVar": false
+        }, obj);
+    },
+
+    _buildChoice: function () {
+
+        return {
+            "name": this.name,
+            "dictionary": {
+                "type": "choice",
+                "dependentFieldLabel": null,
+                "dependentField": null,
+                "dependentTable": null,
+                "name": this.name,
+                "label": this.label,
+                "fieldHint": "The extent to which resolution of an incident can bear delay",
+                "canWrite": true,
+                "canRead": true,
+                "canCreate": true,
+                "internalType": "integer",
+                "isMandatory": false,
+                "isEncrypted": false,
+                "encryptionContext": "",
+                "sys_readonly": false,
+                "attributes": []
+            },
+            "choices": [
+                {
+                    "displayValue": "1 - High",
+                    "value": "1"
+                },
+                {
+                    "displayValue": "2 - Medium",
+                    "value": "2"
+                },
+                {
+                    "displayValue": "3 - Low",
+                    "value": "3"
+                }
+            ],
+            "type": "choice",
+            "label": this.label,
+            "visible": true,
+            "readonly": false,
+            "mandatory": false,
+            "dependentField": null,
+            "dependentTable": null,
+            "referringTable": "incident",
+            "referringRecordId": "f3b281bf871f5510e942a9773cbb35b1",
+            "internalType": "integer",
+            "referenceSysId": "",
+            "highlightedValue": {},
+            "isGlideVar": false,
+            "value": "3",
+            "displayValue": "3 - Low",
+            "valuesList": [],
+            "display_value_list": [],
+            "sys_readonly": false,
+            "originalValue": "3"
+        }
+
+
+
+        // return this._buildFieldWithCommon({
+        //     "internalType": "integer",
+        //     "type": "choice",
+        //     "choices": [
+        //         {
+        //             "displayValue": "3 Months",
+        //             "value": "3"
+        //         },
+        //         {
+        //             "displayValue": "6 Months",
+        //             "value": "6"
+        //         }
+        //     ],
+        //     "valuesList": [],
+        //     "display_value_list": [],
+        //     "value": "",
+        //     "displayValue": ""
+        // });
+    },
+
+    _buildInteger: function () {
+
+        return {
+            "name": this.name,
+            "dictionary": {
+                "type": "integer",
+                "dependentFieldLabel": null,
+                "dependentField": null,
+                "dependentTable": null,
+                "name": this.name,
+                "label": this.label,
+                "fieldHint": "",
+                "canWrite": true,
+                "canRead": true,
+                "canCreate": true,
+                "internalType": "integer",
+                "isMandatory": false,
+                "isEncrypted": false,
+                "encryptionContext": "",
+                "sys_readonly": false,
+                "attributes": []
+            },
+            "maxLength": 40,
+            "defaultRows": null,
+            "type": "integer",
+            "label": this.label,
+            "visible": true,
+            "readonly": false,
+            "mandatory": false,
+            "dependentField": null,
+            "dependentTable": null,
+            "referringTable": null,
+            "referringRecordId": null,
+            "internalType": "integer",
+            "referenceSysId": "",
+            "highlightedValue": {},
+            "isGlideVar": false,
+            "value": "",
+            "displayValue": null,
+            "valuesList": [],
+            "display_value_list": [],
+            "sys_readonly": false,
+            "originalValue": "",
+            "autofocus": true
+        }
+
+
+        return this._buildFieldWithCommon({
+            "internalType": "integer",
+            "type": "integer",
+            "value": "",
+            "displayValue": null
+        });
+    },
+
+    toJSON: function () {
+        return this.fieldData;
+    },
+
+    toString: function () {
+        return JSON.stringify(this.fieldData);
+    },
+
+    type: 'Field'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-18 07:36:32</sys_created_on>
+        <sys_id>2ec2bae487971110e942a9773cbb356a</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Field</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_update_name>sys_script_include_2ec2bae487971110e942a9773cbb356a</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-28 07:27:21</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NextForm">d3a2faa487971110e942a9773cbb3537</application>
+        <file_path/>
+        <instance_id>f60598d9db7e1d5c07072f17d49619fb</instance_id>
+        <instance_name>dldev2</instance_name>
+        <name>sys_script_include_2ec2bae487971110e942a9773cbb356a</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_snc_nf.Field&lt;/api_name&gt;&lt;caller_access&gt;1&lt;/caller_access&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;Field&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var Field = Class.create();
+Field.prototype = {
+
+    initialize: function (type, label, name) {
+        this.fieldType = type;
+        this.label = label;
+        this.name = name;
+
+        switch (this.fieldType) {
+            case "string":
+                this.fieldData = this._buildString();
+                break;
+            case "dateTime":
+                this.fieldData = this._buildDateTime();
+                break;
+            case "integer":
+                this.fieldData = this._buildInteger();
+                break;
+            case "choice":
+                this.fieldData = this._buildChoice();
+                break;
+            default:
+                this.fieldData = this._buildString();
+                break;
+        }
+
+        
+    },
+
+    fieldType: null,
+    label: null,
+    name: null,
+
+    fieldData: {},
+
+    _buildDateTime: function () {
+        return this._buildFieldWithCommon({
+            "type": "glide_date_time",
+            "dependentField": null,
+            "dependentTable": null,
+            "internalType": "glide_date_time",
+            "referenceSysId": "",
+            "highlightedValue": {},
+            "value": null,
+            "displayValue": null,
+            "valuesList": [],
+            "display_value_list": [],
+            "isEncrypted": false,
+        });
+    },
+
+    _buildString: function () {
+        return this._buildFieldWithCommon({
+            "maxLength": 160,
+            "defaultRows": null,
+            "type": "string",
+            "dependentField": null,
+            "dependentTable": null,
+            "internalType": "string",
+            "value": "",
+            "displayValue": null,
+            "valuesList": [],
+            "display_value_list": [],
+        });
+    },
+
+    _buildFieldWithCommon: function (obj) {
+        return Object.assign({
+            "name": this.name,
+            "label": this.label,
+            "defer": true,
+            "visible": true,
+            "readonly": false,
+            "mandatory": false,
+            "isEncrypted": false,
+            "encryptionContext": "",
+            "sys_readonly": false,
+            "canWrite": true,
+            "canRead": true,
+            "canCreate": true,
+            "fieldHint": null,
+            "isGlideVar": false
+        }, obj);
+    },
+
+    _buildChoice: function () {
+
+        return {
+            "name": this.name,
+            "dictionary": {
+                "type": "choice",
+                "dependentFieldLabel": null,
+                "dependentField": null,
+                "dependentTable": null,
+                "name": this.name,
+                "label": this.label,
+                "fieldHint": "The extent to which resolution of an incident can bear delay",
+                "canWrite": true,
+                "canRead": true,
+                "canCreate": true,
+                "internalType": "integer",
+                "isMandatory": false,
+                "isEncrypted": false,
+                "encryptionContext": "",
+                "sys_readonly": false,
+                "attributes": []
+            },
+            "choices": [
+                {
+                    "displayValue": "1 - High",
+                    "value": "1"
+                },
+                {
+                    "displayValue": "2 - Medium",
+                    "value": "2"
+                },
+                {
+                    "displayValue": "3 - Low",
+                    "value": "3"
+                }
+            ],
+            "type": "choice",
+            "label": this.label,
+            "visible": true,
+            "readonly": false,
+            "mandatory": false,
+            "dependentField": null,
+            "dependentTable": null,
+            "referringTable": "incident",
+            "referringRecordId": "f3b281bf871f5510e942a9773cbb35b1",
+            "internalType": "integer",
+            "referenceSysId": "",
+            "highlightedValue": {},
+            "isGlideVar": false,
+            "value": "3",
+            "displayValue": "3 - Low",
+            "valuesList": [],
+            "display_value_list": [],
+            "sys_readonly": false,
+            "originalValue": "3"
+        }
+
+
+
+        // return this._buildFieldWithCommon({
+        //     "internalType": "integer",
+        //     "type": "choice",
+        //     "choices": [
+        //         {
+        //             "displayValue": "3 Months",
+        //             "value": "3"
+        //         },
+        //         {
+        //             "displayValue": "6 Months",
+        //             "value": "6"
+        //         }
+        //     ],
+        //     "valuesList": [],
+        //     "display_value_list": [],
+        //     "value": "",
+        //     "displayValue": ""
+        // });
+    },
+
+    _buildInteger: function () {
+
+        return {
+            "name": this.name,
+            "dictionary": {
+                "type": "integer",
+                "dependentFieldLabel": null,
+                "dependentField": null,
+                "dependentTable": null,
+                "name": this.name,
+                "label": this.label,
+                "fieldHint": "",
+                "canWrite": true,
+                "canRead": true,
+                "canCreate": true,
+                "internalType": "integer",
+                "isMandatory": false,
+                "isEncrypted": false,
+                "encryptionContext": "",
+                "sys_readonly": false,
+                "attributes": []
+            },
+            "maxLength": 40,
+            "defaultRows": null,
+            "type": "integer",
+            "label": this.label,
+            "visible": true,
+            "readonly": false,
+            "mandatory": false,
+            "dependentField": null,
+            "dependentTable": null,
+            "referringTable": null,
+            "referringRecordId": null,
+            "internalType": "integer",
+            "referenceSysId": "",
+            "highlightedValue": {},
+            "isGlideVar": false,
+            "value": "",
+            "displayValue": null,
+            "valuesList": [],
+            "display_value_list": [],
+            "sys_readonly": false,
+            "originalValue": "",
+            "autofocus": true
+        }
+
+
+        return this._buildFieldWithCommon({
+            "internalType": "integer",
+            "type": "integer",
+            "value": "",
+            "displayValue": null
+        });
+    },
+
+    toJSON: function () {
+        return this.fieldData;
+    },
+
+    toString: function () {
+        return JSON.stringify(this.fieldData);
+    },
+
+    type: 'Field'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;dylan.lindgren&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-11-18 07:36:32&lt;/sys_created_on&gt;&lt;sys_id&gt;2ec2bae487971110e942a9773cbb356a&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Field&lt;/sys_name&gt;&lt;sys_package display_value="NextForm" source="x_snc_nf"&gt;d3a2faa487971110e942a9773cbb3537&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="NextForm"&gt;d3a2faa487971110e942a9773cbb3537&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_2ec2bae487971110e942a9773cbb356a&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;dylan.lindgren&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-11-28 07:27:21&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-945003747</payload_hash>
+        <record_name>Field</record_name>
+        <reverted_from/>
+        <source>c1199e99875b9110e942a9773cbb359c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-28 07:27:21</sys_created_on>
+        <sys_id>a7901ef787139510e942a9773cbb3582</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>184bd22207b0000001</sys_recorded_at>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-28 07:27:21</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>23901ef7061395101f8cc1be1b50f082</update_guid>
+        <update_guid_history>23901ef7061395101f8cc1be1b50f082:-945003747,a83445ff4b1f551061c21f17a29e0350:-693629091,79e86739c457111055a17b9ddb3e29b8:126201209,c4d311e96c93d110b1c00c3f69a5335d:-2109941517,538845218993d110259f692d9e65e68f:0,36b4f66807971110b4516cd00dab3a0a:-1485743393,38d2bae4b3971110f50760859da93e88:-1758463734</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-29 05:25:42</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>00ef0dfe7ca548409445b27843f7b440</sys_id>
+        <sys_metadata>2ec2bae487971110e942a9773cbb356a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Field</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_scope_delete display_value="">094c407e42e8496083c63ff1d3be3a84</sys_scope_delete>
+        <sys_update_name>sys_script_include_2ec2bae487971110e942a9773cbb356a</sys_update_name>
+        <sys_update_version display_value="sys_script_include_2ec2bae487971110e942a9773cbb356a">a7901ef787139510e942a9773cbb3582</sys_update_version>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-29 05:25:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

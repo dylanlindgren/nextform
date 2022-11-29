@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_nf.Form</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>Form</name>
+        <script><![CDATA[var Form = Class.create();
+Form.prototype = {
+
+    sysId: null,
+
+    formData: {},
+
+    initialize: function (sysId) {
+        if (typeof sysId !== 'undefined') {
+            this.sysId = sysId;
+        }
+
+        this.formData.sections = this._loadSections();
+        this.formData.fields = this._loadFields();
+    },
+
+    _loadSections: function () {
+        return [
+            {
+                "sysId": "bf1d96e3c0a801640190725e63f8ac80",
+                "caption": "example",
+                "captionDisplay": "Example Section",
+                "rows": [
+                    [
+                        {
+                            "fields": ["title"]
+                        }],
+                    [
+                        {
+                            "fields": ["annual_rgu_target", "start"]
+                        },
+                        {
+                            "fields": ["review", "end"]
+                        }
+                    ]
+                ],
+                "id": 0,
+                "label": "Example Section",
+                "defaultSection": true,
+                "expanded": true
+            }];
+    },
+
+    _loadFields: function () {
+        var fields = {
+            "title": new Field("string", "Title", "title").toJSON(),
+            "annual_rgu_target": new Field("integer", "Annual RGU Target", "annual_rgu_target").toJSON(),
+            "review": new Field("choice", "Review", "review").toJSON(),
+            "start": new Field("dateTime", "Start", "start").toJSON(),
+            "end": new Field("dateTime", "End", "end").toJSON()
+        };
+
+        return fields;
+    },
+
+    debug: function () {
+        this.isDebugMode = true;
+        gs.info(this.isDebugMode)
+        return this;
+    },
+
+    _buildForm: function () {
+        return {
+            area1: {
+                sections: [],
+                fields: {}
+            },
+            area2: {
+                sections: [],
+                fields: {}
+            }
+        }
+    },
+
+    toJSON: function () {
+        return this.formData;
+    },
+
+    toString: function () {
+        return JSON.stringify(this.formData)
+    },
+
+    type: 'Form'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-18 07:36:53</sys_created_on>
+        <sys_id>abd2bae487971110e942a9773cbb35d6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Form</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_update_name>sys_script_include_abd2bae487971110e942a9773cbb35d6</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-21 03:15:31</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NextForm">d3a2faa487971110e942a9773cbb3537</application>
+        <file_path/>
+        <instance_id>f60598d9db7e1d5c07072f17d49619fb</instance_id>
+        <instance_name>dldev2</instance_name>
+        <name>sys_script_include_abd2bae487971110e942a9773cbb35d6</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_snc_nf.Form&lt;/api_name&gt;&lt;caller_access&gt;1&lt;/caller_access&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;Form&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var Form = Class.create();
+Form.prototype = {
+
+    sysId: null,
+
+    formData: {},
+
+    initialize: function (sysId) {
+        if (typeof sysId !== 'undefined') {
+            this.sysId = sysId;
+        }
+
+        this.formData.sections = this._loadSections();
+        this.formData.fields = this._loadFields();
+    },
+
+    _loadSections: function () {
+        return [
+            {
+                "sysId": "bf1d96e3c0a801640190725e63f8ac80",
+                "caption": "example",
+                "captionDisplay": "Example Section",
+                "rows": [
+                    [
+                        {
+                            "fields": ["title"]
+                        }],
+                    [
+                        {
+                            "fields": ["annual_rgu_target", "start"]
+                        },
+                        {
+                            "fields": ["review", "end"]
+                        }
+                    ]
+                ],
+                "id": 0,
+                "label": "Example Section",
+                "defaultSection": true,
+                "expanded": true
+            }];
+    },
+
+    _loadFields: function () {
+        var fields = {
+            "title": new Field("string", "Title", "title").toJSON(),
+            "annual_rgu_target": new Field("integer", "Annual RGU Target", "annual_rgu_target").toJSON(),
+            "review": new Field("choice", "Review", "review").toJSON(),
+            "start": new Field("dateTime", "Start", "start").toJSON(),
+            "end": new Field("dateTime", "End", "end").toJSON()
+        };
+
+        return fields;
+    },
+
+    debug: function () {
+        this.isDebugMode = true;
+        gs.info(this.isDebugMode)
+        return this;
+    },
+
+    _buildForm: function () {
+        return {
+            area1: {
+                sections: [],
+                fields: {}
+            },
+            area2: {
+                sections: [],
+                fields: {}
+            }
+        }
+    },
+
+    toJSON: function () {
+        return this.formData;
+    },
+
+    toString: function () {
+        return JSON.stringify(this.formData)
+    },
+
+    type: 'Form'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;dylan.lindgren&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-11-18 07:36:53&lt;/sys_created_on&gt;&lt;sys_id&gt;abd2bae487971110e942a9773cbb35d6&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Form&lt;/sys_name&gt;&lt;sys_package display_value="NextForm" source="x_snc_nf"&gt;d3a2faa487971110e942a9773cbb3537&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="NextForm"&gt;d3a2faa487971110e942a9773cbb3537&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_abd2bae487971110e942a9773cbb35d6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;dylan.lindgren&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-11-21 03:15:31&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-42574334</payload_hash>
+        <record_name>Form</record_name>
+        <reverted_from/>
+        <source>c1199e99875b9110e942a9773cbb359c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-21 03:15:31</sys_created_on>
+        <sys_id>56d351e98793d110e942a9773cbb35e8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>184982f0dc60000001</sys_recorded_at>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-21 03:15:31</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>ded351e91993d11043939888400ebde7</update_guid>
+        <update_guid_history>ded351e91993d11043939888400ebde7:-42574334,97884521f093d110bbd81aa16b77e992:0,c6b4b668ac971110a129d422f93ae009:1754038576,35e2bae48597111024a29f28a03218ef:1752906998</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-29 05:25:57</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>28d4f1b73b734414a7d0d480e34dec31</sys_id>
+        <sys_metadata>abd2bae487971110e942a9773cbb35d6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Form</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_scope_delete display_value="">094c407e42e8496083c63ff1d3be3a84</sys_scope_delete>
+        <sys_update_name>sys_script_include_abd2bae487971110e942a9773cbb35d6</sys_update_name>
+        <sys_update_version display_value="sys_script_include_abd2bae487971110e942a9773cbb35d6">56d351e98793d110e942a9773cbb35e8</sys_update_version>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-29 05:25:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

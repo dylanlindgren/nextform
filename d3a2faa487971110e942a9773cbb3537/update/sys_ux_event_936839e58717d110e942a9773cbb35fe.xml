@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_event">
     <sys_ux_event action="INSERT_OR_UPDATE">
         <description/>
-        <event_name>CTRL_NEXTFORM#CHANGE_SCREEN</event_name>
+        <event_name>CTRL_NEXTFORM#CHANGE_SCREEN_INDEX</event_name>
         <interfaces/>
         <label>[Screen] Change current screen</label>
         <props>[{&#13;
@@ -23,11 +23,14 @@
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-21 05:55:46</sys_created_on>
         <sys_id>936839e58717d110e942a9773cbb35fe</sys_id>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>[Screen] Change current screen</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy/>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_ux_event_936839e58717d110e942a9773cbb35fe</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-25 08:15:22</sys_updated_on>
     </sys_ux_event>
     <sys_translated_text action="delete_multiple" query="documentkey=936839e58717d110e942a9773cbb35fe"/>
 </record_update>

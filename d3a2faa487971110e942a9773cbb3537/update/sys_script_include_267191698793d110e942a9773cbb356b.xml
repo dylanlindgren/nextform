@@ -2,13 +2,13 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
-        <api_name>x_snc_nf.NextFormHelper</api_name>
+        <api_name>x_snc_nf.NFAPIHelper</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
-        <name>NextFormHelper</name>
-        <script><![CDATA[var NextFormHelper = Class.create();
-NextFormHelper.prototype = {
+        <name>NFAPIHelper</name>
+        <script><![CDATA[var NFAPIHelper = Class.create();
+NFAPIHelper.prototype = {
     initialize: function() {},
 	generate: function (nextFormId) {
 		var nfGr = new GlideRecord('x_snc_nf_nextform');
@@ -22,6 +22,8 @@ NextFormHelper.prototype = {
 	process: function process (nextFormId, payload) {
 		var nfGr = new GlideRecord('x_snc_nf_nextform');
 		
+		gs.info(JSON.stringify(payload, null, " "));
+		
 		if (nfGr.get(nextFormId)) {
 			var payloadGr = nfGr.processor.getRefRecord();
 			var evaluator = new GlideScopedEvaluator();
@@ -29,16 +31,19 @@ NextFormHelper.prototype = {
 			return evaluator.evaluateScript(payloadGr, 'script');
 		}
 	},
-    type: 'NextFormHelper'
+    type: 'NFAPIHelper'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-21 03:05:24</sys_created_on>
         <sys_id>267191698793d110e942a9773cbb356b</sys_id>
-        <sys_name>NextFormHelper</sys_name>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>NFAPIHelper</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_script_include_267191698793d110e942a9773cbb356b</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-29 06:32:27</sys_updated_on>
     </sys_script_include>
 </record_update>

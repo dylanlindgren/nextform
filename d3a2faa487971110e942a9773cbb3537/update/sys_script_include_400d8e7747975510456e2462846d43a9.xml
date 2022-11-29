@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_nf.NextField</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>NextField</name>
+        <script><![CDATA[var NextField = Class.create();
+NextField.prototype = {
+
+    fieldType: null,
+    label: null,
+    name: null,
+    fieldData: {},
+
+    initialize: function(type, label, name, options) {
+        this.fieldType = type;
+        this.label = label;
+        this.name = name;
+		this.options = options;
+
+        switch (this.fieldType) {
+            case "string":
+                this.fieldData = this._buildString();
+                break;
+            case "dateTime":
+                this.fieldData = this._buildDateTime();
+                break;
+            case "integer":
+                this.fieldData = this._buildInteger();
+                break;
+            case "choice":
+                this.fieldData = this._buildChoice();
+                break;
+			case "boolean":
+				this.fieldData = this._buildBoolean();
+				break;
+            default:
+                this.fieldData = this._buildString();
+                break;
+        }
+    },
+	
+	_buildBoolean: function () {
+		return this._buildFieldWithCommon({
+			"type": "boolean",
+            "internalType": "boolean",
+		});
+	},
+
+    _buildDateTime: function () {
+        return this._buildFieldWithCommon({
+            "type": "glide_date_time",
+            "internalType": "glide_date_time"
+        });
+    },
+
+    _buildString: function () {
+        return this._buildFieldWithCommon({
+            "maxLength": this._getOption('maxLength', 40),
+            "type": "string",
+            "internalType": "string"
+        });
+    },
+
+    _buildChoice: function () {
+		return this._buildFieldWithCommon({
+			"choices": this.options.choices,
+			"type": "choice",
+			"internalType": "integer"
+		});
+    },
+
+    _buildInteger: function () {
+		return this._buildFieldWithCommon({
+			"type": "integer",
+			"internalType": "integer"
+		});
+    },
+	
+	_buildFieldWithCommon: function (obj) {
+        return Object.assign({
+            "name": this.name,
+            "label": this.label,
+            "defer": true,
+            "visible": true,
+            "readonly": false,
+            "mandatory": false,
+            "isEncrypted": false,
+            "encryptionContext": "",
+            "sys_readonly": false,
+            "canWrite": true,
+            "canRead": true,
+            "canCreate": true,
+            "fieldHint": null,
+            "isGlideVar": false,
+			"value": this._getOption('value', ""),
+            "displayValue": this._getOption('displayValue', ""),
+			"originalValue": this._getOption('value', "")
+        }, obj);
+    },
+	
+	_getOption: function (name, defaultVal) {
+		
+		if (this.options) {
+			return this.options[name] ? this.options[name] : defaultVal;
+		}
+		
+		return null;
+	},
+
+    toJSON: function () {
+        return this.fieldData;
+    },
+
+    toString: function () {
+        return this.name;
+    },
+
+    type: 'NextField'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2022-11-28 07:11:54</sys_created_on>
+        <sys_id>400d8e7747975510456e2462846d43a9</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>NextField</sys_name>
+        <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
+        <sys_update_name>sys_script_include_400d8e7747975510456e2462846d43a9</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2022-11-29 08:33:53</sys_updated_on>
+    </sys_script_include>
+</record_update>
