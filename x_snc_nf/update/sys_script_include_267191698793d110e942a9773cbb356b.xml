@@ -5,7 +5,7 @@
         <api_name>x_snc_nf.NFAPIHelper</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>NFAPIHelper script include definition</description>
         <name>NFAPIHelper</name>
         <script><![CDATA[var NFAPIHelper = Class.create();
 NFAPIHelper.prototype = {
@@ -16,13 +16,12 @@ NFAPIHelper.prototype = {
 		if (nfGr.get(nextFormId)) {
 			var generatorGr = nfGr.generator.getRefRecord();
 			var evaluator = new GlideScopedEvaluator();
-			return evaluator.evaluateScript(generatorGr, 'script');
+			var nf = evaluator.evaluateScript(generatorGr, 'script');
+			return nf.toJSON();
 		}
 	},
 	process: function process (nextFormId, payload) {
 		var nfGr = new GlideRecord('x_snc_nf_nextform');
-		
-		gs.info(JSON.stringify(payload, null, " "));
 		
 		if (nfGr.get(nextFormId)) {
 			var payloadGr = nfGr.processor.getRefRecord();
@@ -37,13 +36,13 @@ NFAPIHelper.prototype = {
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-21 03:05:24</sys_created_on>
         <sys_id>267191698793d110e942a9773cbb356b</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>NFAPIHelper</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_script_include_267191698793d110e942a9773cbb356b</sys_update_name>
         <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2022-11-29 06:32:27</sys_updated_on>
+        <sys_updated_on>2022-11-30 07:08:54</sys_updated_on>
     </sys_script_include>
 </record_update>

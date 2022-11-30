@@ -5,7 +5,7 @@
         <api_name>x_snc_nf.NextField</api_name>
         <caller_access>1</caller_access>
         <client_callable>false</client_callable>
-        <description/>
+        <description>NextField script include definition</description>
         <name>NextField</name>
         <script><![CDATA[var NextField = Class.create();
 NextField.prototype = {
@@ -15,11 +15,11 @@ NextField.prototype = {
     name: null,
     fieldData: {},
 
-    initialize: function(type, label, name, options) {
+    initialize: function (type, label, name, options) {
         this.fieldType = type;
         this.label = label;
         this.name = name;
-		this.options = options;
+        this.options = options;
 
         switch (this.fieldType) {
             case "string":
@@ -34,21 +34,353 @@ NextField.prototype = {
             case "choice":
                 this.fieldData = this._buildChoice();
                 break;
-			case "boolean":
-				this.fieldData = this._buildBoolean();
-				break;
+            case "boolean":
+                this.fieldData = this._buildBoolean();
+                break;
+            case "currency":
+                this.fieldData = this._buildCurrency();
+                break;
+            case "decimal":
+                this.fieldData = this._buildDecimal();
+                break;
+            case "date":
+                this.fieldData = this._buildDate();
+                break;
+            case "list":
+                this.fieldData = this._buildList();
+                break;
+            case "time":
+                this.fieldData = this._buildTime();
+                break;
+            case "html":
+                this.fieldData = this._buildHTML();
+                break;
+            case "reference":
+                this.fieldData = this._buildReference();
+                break;
+            case "url":
+                this.fieldData = this._buildURL();
+                break;
             default:
                 this.fieldData = this._buildString();
                 break;
         }
     },
-	
-	_buildBoolean: function () {
-		return this._buildFieldWithCommon({
-			"type": "boolean",
+
+    _buildCurrency: function () {
+        return this._buildFieldWithCommon({
+            "defaultCurrency": null,
+            "type": "currency",
+            "internalType": "currency",
+            "currencyCodes": this.options.currencyCodes,
+        });
+    },
+
+    _buildDecimal: function () {
+        return this._buildFieldWithCommon({
+            "type": "decimal",
+            "internalType": "decimal"
+        });
+    },
+
+    _buildDate: function () {
+        return this._buildFieldWithCommon({
+            "type": "glide_date",
+            "internalType": "glide_date"
+        });
+    },
+    
+    _buildList: function () {
+        return this._buildFieldWithCommon({
+            "type": "glide_list",
+            "internalType": "glide_list",
+            "reference": this._getOption('reference', null),
+            "declarativeUiActions": [
+                {
+                  "name": "list_ref_search",
+                  "icon": "magnifying-glass-outline",
+                  "label": "Search for Record",
+                  "dependency": "",
+                  "requiresValue": false,
+                  "order": 0,
+                  "conditions": "",
+                  "actionType": "uxf_client_action",
+                  "actionComponent": "",
+                  "actionDispatch": "REF_SEARCH_REQUESTED",
+                  "actionPayload": "{\r\n  \"referenceField\": \"{{fieldName}}\",\r\n\"referenceKey\": \"{{referenceKey}}\",\r\n\"referenceTable\": \"{{referenceTable}}\",\r\n  \"fieldLabel\": \"{{label}}\",\r\n  \"parentTable\": \"{{tableName}}\",\r\n  \"parentSysId\": \"{{recordSysId}}\",\r\n  \"encodedRecord\": \"{{encodedRecord}}\",\r\n  \"serializedChanges\": \"{{serializedChanges}}\",\r\n  \"fieldType\": \"{{fieldType}}\",\r\n  \"value\": \"{{value}}\",\r\n  \"displayValue\": \"{{displayValue}}\",\r\n  \"dependentField\" : \"{{dependentField}}\",\r\n  \"dependentValue\": \"{{dependentValue}}\"\r\n\r\n}",
+                  "actionAttributes": "",
+                  "groupBy": false,
+                  "group": "",
+                  "assignmentId": "f5f1de327764701022f7f4d268106186",
+                  "confirmationRequired": false,
+                  "confirmationMessage": "",
+                  "tooltip": "Search for Record",
+                  "clientScript": "function onClick() { }",
+                  "modelConditions": [
+                    {
+                      "field": "readonly",
+                      "operator": "=",
+                      "value": "false",
+                      "newQuery": false,
+                      "or": false
+                    },
+                    {
+                      "field": null,
+                      "operator": "=",
+                      "value": null,
+                      "newQuery": false,
+                      "or": false
+                    }
+                  ],
+                  "payloadMap": [
+                    {
+                      "name": "parentSysId",
+                      "value": "{{recordSysId}}"
+                    },
+                    {
+                      "name": "dependentValue",
+                      "value": "{{dependentValue}}"
+                    },
+                    {
+                      "name": "encodedRecord",
+                      "value": "{{encodedRecord}}"
+                    },
+                    {
+                      "name": "dependentField",
+                      "value": "{{dependentField}}"
+                    },
+                    {
+                      "name": "displayValue",
+                      "value": "{{displayValue}}"
+                    },
+                    {
+                      "name": "referenceField",
+                      "value": "{{fieldName}}"
+                    },
+                    {
+                      "name": "fieldLabel",
+                      "value": "{{label}}"
+                    },
+                    {
+                      "name": "serializedChanges",
+                      "value": "{{serializedChanges}}"
+                    },
+                    {
+                      "name": "parentTable",
+                      "value": "{{tableName}}"
+                    },
+                    {
+                      "name": "fieldType",
+                      "value": "{{fieldType}}"
+                    },
+                    {
+                      "name": "value",
+                      "value": "{{value}}"
+                    },
+                    {
+                      "name": "referenceKey",
+                      "value": "{{referenceKey}}"
+                    },
+                    {
+                      "name": "referenceTable",
+                      "value": "{{referenceTable}}"
+                    }
+                  ]
+                }
+              ]
+        });
+    },
+
+    _buildTime: function () {
+        return this._buildFieldWithCommon({
+            "type": "glide_time",
+            "internalType": "glide_time"
+        });
+    },
+
+    _buildHTML: function () {
+        return this._buildFieldWithCommon({
+            "type": "html",
+            "internalType": "html",
+            "maxLength": this._getOption('maxLength', 8000)
+        });
+    },
+
+    _buildReference: function () {
+        return this._buildFieldWithCommon({
+            "type": "glide_list",
+            "internalType": "glide_list",
+            "reference": this._getOption('reference', null),
+            "referenceQualifier": this._getOption('referenceQualifier', null),
+            "useReferenceQualifier": this._getOption('useReferenceQualifier', 'simple'),
+            "declarativeUiActions": [
+                {
+                  "name": "open_record",
+                  "icon": "circle-info-outline",
+                  "label": "Open Record",
+                  "dependency": "",
+                  "requiresValue": true,
+                  "order": 0,
+                  "conditions": "",
+                  "actionType": "uxf_client_action",
+                  "actionComponent": "",
+                  "actionDispatch": "REFERENCE_INFO_CLICK",
+                  "actionPayload": "{\r\n\t\"referenceInfoClick\": {\r\n\t\t\"name\": \"{{name}}\",\r\n\t\t\"sys_id\": \"{{referenceSysId}}\",\r\n\t\t\"referencetable\": \"{{referenceTable}}\",\r\n\t\t\"table\": \"{{tableName}}\",\r\n\t\t\"field\": \"{{fieldName}}\"\r\n\t}\r\n}",
+                  "actionAttributes": "",
+                  "groupBy": false,
+                  "group": "",
+                  "assignmentId": "172e2043534310108135ddeeff7b12dd",
+                  "confirmationRequired": false,
+                  "confirmationMessage": "",
+                  "tooltip": "Open Record",
+                  "clientScript": "",
+                  "modelConditions": [
+                    {
+                      "field": "value",
+                      "operator": "ISNOTEMPTY",
+                      "value": "",
+                      "newQuery": false,
+                      "or": false
+                    },
+                    {
+                      "field": null,
+                      "operator": "=",
+                      "value": null,
+                      "newQuery": false,
+                      "or": false
+                    }
+                  ],
+                  "payloadMap": [
+                    {
+                      "name": "referenceInfoClick@referencetable",
+                      "value": "{{referenceTable}}"
+                    },
+                    {
+                      "name": "referenceInfoClick@sys_id",
+                      "value": "{{referenceSysId}}"
+                    },
+                    {
+                      "name": "referenceInfoClick@field",
+                      "value": "{{fieldName}}"
+                    },
+                    {
+                      "name": "referenceInfoClick@table",
+                      "value": "{{tableName}}"
+                    },
+                    {
+                      "name": "referenceInfoClick@name",
+                      "value": "{{name}}"
+                    }
+                  ]
+                },
+                {
+                  "name": "ref_search",
+                  "icon": "magnifying-glass-outline",
+                  "label": "Search For Record",
+                  "dependency": "",
+                  "requiresValue": false,
+                  "order": 0,
+                  "conditions": "",
+                  "actionType": "uxf_client_action",
+                  "actionComponent": "",
+                  "actionDispatch": "REF_SEARCH_REQUESTED",
+                  "actionPayload": "{\r\n  \"referenceField\": \"{{fieldName}}\",\r\n\"referenceKey\": \"{{referenceKey}}\",\r\n\"referenceTable\": \"{{referenceTable}}\",\r\n  \"fieldLabel\": \"{{label}}\",\r\n  \"parentTable\": \"{{tableName}}\",\r\n  \"parentSysId\": \"{{recordSysId}}\",\r\n  \"encodedRecord\": \"{{encodedRecord}}\",\r\n  \"serializedChanges\": \"{{serializedChanges}}\",\r\n  \"fieldType\": \"{{fieldType}}\",\r\n  \"value\": \"{{value}}\",\r\n  \"displayValue\": \"{{displayValue}}\",\r\n  \"dependentField\" : \"{{dependentField}}\",\r\n  \"dependentValue\": \"{{dependentValue}}\"\r\n\r\n}",
+                  "actionAttributes": "",
+                  "groupBy": false,
+                  "group": "",
+                  "assignmentId": "c6542741ff13101035be517f793bf1bb",
+                  "confirmationRequired": false,
+                  "confirmationMessage": "",
+                  "tooltip": "Search for Record ",
+                  "clientScript": "",
+                  "modelConditions": [
+                    {
+                      "field": "readonly",
+                      "operator": "=",
+                      "value": "false",
+                      "newQuery": false,
+                      "or": false
+                    },
+                    {
+                      "field": null,
+                      "operator": "=",
+                      "value": null,
+                      "newQuery": false,
+                      "or": false
+                    }
+                  ],
+                  "payloadMap": [
+                    {
+                      "name": "parentSysId",
+                      "value": "{{recordSysId}}"
+                    },
+                    {
+                      "name": "dependentValue",
+                      "value": "{{dependentValue}}"
+                    },
+                    {
+                      "name": "encodedRecord",
+                      "value": "{{encodedRecord}}"
+                    },
+                    {
+                      "name": "dependentField",
+                      "value": "{{dependentField}}"
+                    },
+                    {
+                      "name": "displayValue",
+                      "value": "{{displayValue}}"
+                    },
+                    {
+                      "name": "referenceField",
+                      "value": "{{fieldName}}"
+                    },
+                    {
+                      "name": "fieldLabel",
+                      "value": "{{label}}"
+                    },
+                    {
+                      "name": "serializedChanges",
+                      "value": "{{serializedChanges}}"
+                    },
+                    {
+                      "name": "parentTable",
+                      "value": "{{tableName}}"
+                    },
+                    {
+                      "name": "fieldType",
+                      "value": "{{fieldType}}"
+                    },
+                    {
+                      "name": "value",
+                      "value": "{{value}}"
+                    },
+                    {
+                      "name": "referenceKey",
+                      "value": "{{referenceKey}}"
+                    },
+                    {
+                      "name": "referenceTable",
+                      "value": "{{referenceTable}}"
+                    }
+                  ]
+                }
+              ],
+        });
+    },
+
+    _buildURL: function () {
+        return this._buildFieldWithCommon({
+            "type": "url",
+            "internalType": "url"
+        });
+    },
+
+    _buildBoolean: function () {
+        return this._buildFieldWithCommon({
+            "type": "boolean",
             "internalType": "boolean",
-		});
-	},
+        });
+    },
 
     _buildDateTime: function () {
         return this._buildFieldWithCommon({
@@ -66,21 +398,21 @@ NextField.prototype = {
     },
 
     _buildChoice: function () {
-		return this._buildFieldWithCommon({
-			"choices": this.options.choices,
-			"type": "choice",
-			"internalType": "integer"
-		});
+        return this._buildFieldWithCommon({
+            "choices": this.options.choices,
+            "type": "choice",
+            "internalType": "integer"
+        });
     },
 
     _buildInteger: function () {
-		return this._buildFieldWithCommon({
-			"type": "integer",
-			"internalType": "integer"
-		});
+        return this._buildFieldWithCommon({
+            "type": "integer",
+            "internalType": "integer"
+        });
     },
-	
-	_buildFieldWithCommon: function (obj) {
+
+    _buildFieldWithCommon: function (obj) {
         return Object.assign({
             "name": this.name,
             "label": this.label,
@@ -96,20 +428,20 @@ NextField.prototype = {
             "canCreate": true,
             "fieldHint": null,
             "isGlideVar": false,
-			"value": this._getOption('value', ""),
+            "value": this._getOption('value', ""),
             "displayValue": this._getOption('displayValue', ""),
-			"originalValue": this._getOption('value', "")
+            "originalValue": this._getOption('value', "")
         }, obj);
     },
-	
-	_getOption: function (name, defaultVal) {
-		
-		if (this.options) {
-			return this.options[name] ? this.options[name] : defaultVal;
-		}
-		
-		return null;
-	},
+
+    _getOption: function (name, defaultVal) {
+
+        if (this.options) {
+            return this.options[name] ? this.options[name] : defaultVal;
+        }
+
+        return null;
+    },
 
     toJSON: function () {
         return this.fieldData;
@@ -125,13 +457,13 @@ NextField.prototype = {
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-28 07:11:54</sys_created_on>
         <sys_id>400d8e7747975510456e2462846d43a9</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>NextField</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_script_include_400d8e7747975510456e2462846d43a9</sys_update_name>
         <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2022-11-29 08:33:53</sys_updated_on>
+        <sys_updated_on>2022-11-30 07:07:19</sys_updated_on>
     </sys_script_include>
 </record_update>
