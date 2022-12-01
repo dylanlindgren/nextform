@@ -20,14 +20,14 @@ NFAPIHelper.prototype = {
 			return nf.toJSON();
 		}
 	},
-	process: function process (nextFormId, payload) {
+	process: function process (nextFormId, nfData) {
 		var nfGr = new GlideRecord('x_snc_nf_nextform');
 		
 		if (nfGr.get(nextFormId)) {
-			var payloadGr = nfGr.processor.getRefRecord();
+			var processorGr = nfGr.processor.getRefRecord();
 			var evaluator = new GlideScopedEvaluator();
-			evaluator.putVariable('nfData', payload);
-			return evaluator.evaluateScript(payloadGr, 'script');
+			evaluator.putVariable('nfData', nfData);
+			return evaluator.evaluateScript(processorGr, 'script');
 		}
 	},
     type: 'NFAPIHelper'
@@ -36,13 +36,13 @@ NFAPIHelper.prototype = {
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2022-11-21 03:05:24</sys_created_on>
         <sys_id>267191698793d110e942a9773cbb356b</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>NFAPIHelper</sys_name>
         <sys_package display_value="NextForm" source="x_snc_nf">d3a2faa487971110e942a9773cbb3537</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="NextForm">d3a2faa487971110e942a9773cbb3537</sys_scope>
         <sys_update_name>sys_script_include_267191698793d110e942a9773cbb356b</sys_update_name>
         <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2022-11-30 07:08:54</sys_updated_on>
+        <sys_updated_on>2022-12-01 13:17:52</sys_updated_on>
     </sys_script_include>
 </record_update>
